@@ -27,17 +27,41 @@ namespace WpfApplication2
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
+            Save();          
+        }
+
+        private void OpenBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Open();
+        }
+
+        private void NewBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Do you want to Save?", "Save or Not", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                Save();
+            }
+            else
+            {
+                Textarea.Text = "";
+            }
+        }
+
+        // 储存文件
+        void Save()
+        {
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
 
             Nullable<bool> result = dlg.ShowDialog();
 
             if (result == true)
             {
-                System.IO.File.WriteAllText(dlg.FileName,Textarea.Text);
-            }            
+                System.IO.File.WriteAllText(dlg.FileName, Textarea.Text);
+            }
         }
 
-        private void OpenBtn_Click(object sender, RoutedEventArgs e)
+        // 打开文件
+        void Open()
         {
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
@@ -47,10 +71,7 @@ namespace WpfApplication2
             {
                 Textarea.Text = System.IO.File.ReadAllText(dlg.FileName);
             }
-
-
-
-            Textarea.Text=System.IO.File.ReadAllText(@"C:\temp\666.txt");
+            Textarea.Text = System.IO.File.ReadAllText(@"C:\temp\666.txt");
         }
     }
 }
