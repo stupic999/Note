@@ -119,12 +119,16 @@ namespace WpfApplication2
         {
             Textarea.Background = Brushes.Gray;
             Textarea.Foreground = Brushes.White;
+            Title.Background = Brushes.Gray;
+            Title.Foreground = Brushes.White;
         }
 
         private void ChangeWhite_Click(object sender, RoutedEventArgs e)
         {
             Textarea.Background = Brushes.White;
             Textarea.Foreground = Brushes.Gray;
+            Title.Background = Brushes.White;
+            Title.Foreground = Brushes.Gray;
         }
 
         private void ChangeSmall_Click(object sender, RoutedEventArgs e)
