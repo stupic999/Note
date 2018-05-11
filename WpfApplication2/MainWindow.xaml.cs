@@ -123,6 +123,16 @@ namespace WpfApplication2
             Textarea.Foreground = Brushes.White;
             Title.Background = Brushes.Gray;
             Title.Foreground = Brushes.White;
+            CloseBtn.Background = Brushes.Gray;
+            CloseBtn.Foreground = Brushes.White;
+            CloseBtn.BorderBrush = Brushes.Gray;
+            MaxBtn.Background = Brushes.Gray;
+            MaxBtn.Foreground = Brushes.White;
+            MaxBtn.BorderBrush = Brushes.Gray;
+            MinBtn.Background = Brushes.Gray;
+            MinBtn.Foreground = Brushes.White;
+            MinBtn.BorderBrush = Brushes.Gray;
+            TitleBar.Background = Brushes.Gray;
         }
 
         private void ChangeWhite_Click(object sender, RoutedEventArgs e)
@@ -131,6 +141,16 @@ namespace WpfApplication2
             Textarea.Foreground = Brushes.Gray;
             Title.Background = Brushes.White;
             Title.Foreground = Brushes.Gray;
+            MaxBtn.Background = Brushes.White;
+            MaxBtn.Foreground = Brushes.Gray;
+            MaxBtn.BorderBrush = Brushes.White;
+            MinBtn.Background = Brushes.White;
+            MinBtn.Foreground = Brushes.Gray;
+            MinBtn.BorderBrush = Brushes.White;
+            CloseBtn.Background = Brushes.White;
+            CloseBtn.Foreground = Brushes.Gray;
+            CloseBtn.BorderBrush = Brushes.White;
+            TitleBar.Background = Brushes.White;
         }
 
         private void ChangeSmall_Click(object sender, RoutedEventArgs e)

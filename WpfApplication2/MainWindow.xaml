@@ -19,13 +19,13 @@
         </Grid.ColumnDefinitions>
 
         <!--标题-->
-        <Grid Grid.Column="1" x:Name="TitleBar" MouseMove="TitleBar_MouseMove">
-             <TextBlock Margin="10 3 0 0" FontSize="15" x:Name="Title">NewFile.txt</TextBlock>
+        <Grid Grid.Column="1" x:Name="TitleBar" MouseMove="TitleBar_MouseMove" >
+            <TextBlock Margin="10 3 0 0" FontSize="15" x:Name="Title" Foreground="Gray">NewFile.txt</TextBlock>
         </Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
-            <Button Width="20" x:Name="MinBtn"  Click="MinBtn_Click" Background="White" BorderBrush="White">一</Button>
-            <Button Width="20" x:Name="MaxBtn"  Click="MaxBtn_Click" Background="White" BorderBrush="White">口</Button>
-            <Button Width="20" x:Name="CloseBtn"  Click="CloseBtn_Click" Background="White" BorderBrush="White">X</Button>
+            <Button Width="20" x:Name="MinBtn"  Click="MinBtn_Click" Background="White" BorderBrush="White" Foreground="Gray">一</Button>
+            <Button Width="20" x:Name="MaxBtn"  Click="MaxBtn_Click" Background="White" BorderBrush="White" Foreground="Gray">口</Button>
+            <Button Width="20" x:Name="CloseBtn"  Click="CloseBtn_Click" Background="White" BorderBrush="White" Foreground="Gray">X</Button>
         </StackPanel>
 
             <!--内容-->
