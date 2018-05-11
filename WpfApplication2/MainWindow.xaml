@@ -19,7 +19,10 @@
         </Grid.ColumnDefinitions>
 
         <!--标题-->
-        <TextBlock Grid.Column="1" Margin="10 3 0 0" FontSize="15" x:Name="Title">NewFile.txt</TextBlock>
+        <Grid Grid.Column="1" x:Name="TitleBar" Height="Auto" MouseMove="TitleBar_MouseMove">
+             <TextBlock Margin="10 3 0 0" FontSize="15" x:Name="Title">NewFile.txt</TextBlock>
+        </Grid>
+       
         <!--内容-->
         <Rectangle Fill="Black"></Rectangle>
         <Rectangle Fill="Black" Grid.Row="1"></Rectangle>

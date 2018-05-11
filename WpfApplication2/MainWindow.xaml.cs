@@ -150,5 +150,13 @@ namespace WpfApplication2
         {
             nowText = Textarea.Text;
         }
+
+        private void TitleBar_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
     }
 }
