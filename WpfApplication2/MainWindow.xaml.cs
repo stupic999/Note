@@ -116,5 +116,17 @@ namespace WpfApplication2
             nowText = Textarea.Text;
             Save();
         }
+
+        private void ChangeGray_Click(object sender, RoutedEventArgs e)
+        {
+            Textarea.Background = Brushes.Gray;
+            Textarea.Foreground = Brushes.White;
+        }
+
+        private void ChangeWhite_Click(object sender, RoutedEventArgs e)
+        {
+            Textarea.Background = Brushes.White;
+            Textarea.Foreground = Brushes.Gray;
+        }
     }
 }
