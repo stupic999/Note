@@ -7,17 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
+        
         <!--定义格子-->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        
         <!--内容-->
-        <Rectangle Fill="Gray">        </Rectangle>
-        <StackPanel >
-            <Button Margin="10" x:Name="NewBtn" Click="NewBtn_Click">New</Button>
-            <Button Margin="10" x:Name="OpenBtn" Click="OpenBtn_Click">Open</Button>
-            <Button Margin="10" Click="SaveBtn_Click" x:Name="SaveBtn">Save</Button>
+        <Rectangle Fill="Black"></Rectangle>
+        <StackPanel>
+            <Button Margin="10" x:Name="NewBtn" Click="NewBtn_Click" Background="Black" Foreground="White" BorderBrush="Black">New</Button>
+            <Button Margin="10" x:Name="OpenBtn" Click="OpenBtn_Click" Background="Black" Foreground="White"  BorderBrush="Black">Open</Button>
+            <Button Margin="10" Click="SaveBtn_Click" x:Name="SaveBtn" Background="Black" Foreground="White"  BorderBrush="Black">Save</Button>
+            <Button Margin="10" Click="SaveAsBtn_Click" x:Name="SaveAsBtn" Background="Black" Foreground="White"  BorderBrush="Black">SaveAs</Button>
         </StackPanel>
         <ScrollViewer Grid.Column="1"  VerticalScrollBarVisibility="Auto">
             <TextBox Grid.Column="1"  TextWrapping="Wrap" AcceptsReturn="True" x:Name="Textarea"></TextBox>

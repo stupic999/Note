@@ -50,14 +50,14 @@ namespace WpfApplication2
         // 储存文件
         void Save()
         {
-            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+                Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
 
-            Nullable<bool> result = dlg.ShowDialog();
+                Nullable<bool> result = dlg.ShowDialog();
 
-            if (result == true)
-            {
-                System.IO.File.WriteAllText(dlg.FileName, Textarea.Text);
-            }
+                if (result == true)
+                {
+                    System.IO.File.WriteAllText(dlg.FileName, Textarea.Text);
+                }
         }
 
         // 打开文件
@@ -71,7 +71,11 @@ namespace WpfApplication2
             {
                 Textarea.Text = System.IO.File.ReadAllText(dlg.FileName);
             }
-            Textarea.Text = System.IO.File.ReadAllText(@"C:\temp\666.txt");
+        }
+
+        private void SaveAsBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
