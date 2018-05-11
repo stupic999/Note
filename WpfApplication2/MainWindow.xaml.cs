@@ -20,26 +20,90 @@ namespace WpfApplication2
     /// </summary>
     public partial class MainWindow : Window
     {
+        // 现在与新的档案名，用于分辨Save与SaveAs
+        string fileName = "";
+        string newFileName = "";
+
+        // 现在的字与已储存的档案，用于预防New与Open不小心点错而导致档案消失
+        string nowText = "";
+        string savedText="";
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        // 储存文件
+        void Save()
+        {
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            Nullable<bool> result = dlg.ShowDialog();
+            if (result == true)
+            {
+                System.IO.File.WriteAllText(dlg.FileName, Textarea.Text);
+                fileName = dlg.FileName;
+                savedText = nowText;
+                MessageBox.Show(savedText);
+            }
+        }
+        // 打开文件
+        void Open()
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            Nullable<bool> result = dlg.ShowDialog();
+            if (result == true)
+            {
+                Textarea.Text = System.IO.File.ReadAllText(dlg.FileName);
+                fileName = dlg.FileName;
+                savedText = Textarea.Text;
+            }
+        }
+
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            Save();          
+            nowText = Textarea.Text;
+            if (fileName == newFileName)
+            {
+                Save();
+            }
+            else
+            {
+                System.IO.File.WriteAllText(fileName, Textarea.Text);
+                savedText = nowText;
+            }
         }
 
         private void OpenBtn_Click(object sender, RoutedEventArgs e)
         {
-            Open();
+            nowText = Textarea.Text;
+            if (savedText != nowText)
+                if (MessageBox.Show("Do you want to Save?", "Save or Not", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    Save();
+                }
+                else
+                {
+                    Open();
+                }
+            else
+            {
+                Open();
+            }
         }
 
         private void NewBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Do you want to Save?", "Save or Not", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            nowText = Textarea.Text;
+            if (savedText != nowText)
             {
-                Save();
+                if (MessageBox.Show("Do you want to Save?", "Save or Not", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    Save();
+                }
+                else
+                {
+                    Textarea.Text = "";
+                }
             }
             else
             {
@@ -47,35 +111,10 @@ namespace WpfApplication2
             }
         }
 
-        // 储存文件
-        void Save()
-        {
-                Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
-
-                Nullable<bool> result = dlg.ShowDialog();
-
-                if (result == true)
-                {
-                    System.IO.File.WriteAllText(dlg.FileName, Textarea.Text);
-                }
-        }
-
-        // 打开文件
-        void Open()
-        {
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-
-            Nullable<bool> result = dlg.ShowDialog();
-
-            if (result == true)
-            {
-                Textarea.Text = System.IO.File.ReadAllText(dlg.FileName);
-            }
-        }
-
         private void SaveAsBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            nowText = Textarea.Text;
+            Save();
         }
     }
 }
