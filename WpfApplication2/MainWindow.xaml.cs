@@ -61,7 +61,6 @@ namespace WpfApplication2
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            nowText = Textarea.Text;
             if (fileName == newFileName)
             {
                 Save();
@@ -75,7 +74,6 @@ namespace WpfApplication2
 
         private void OpenBtn_Click(object sender, RoutedEventArgs e)
         {
-            nowText = Textarea.Text;
             if (savedText != nowText)
                 if (MessageBox.Show("Do you want to Save?", "Save or Not", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
@@ -93,7 +91,6 @@ namespace WpfApplication2
 
         private void NewBtn_Click(object sender, RoutedEventArgs e)
         {
-            nowText = Textarea.Text;
             if (savedText != nowText)
             {
                 if (MessageBox.Show("Do you want to Save?", "Save or Not", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
@@ -113,7 +110,6 @@ namespace WpfApplication2
 
         private void SaveAsBtn_Click(object sender, RoutedEventArgs e)
         {
-            nowText = Textarea.Text;
             Save();
         }
 
@@ -127,6 +123,26 @@ namespace WpfApplication2
         {
             Textarea.Background = Brushes.White;
             Textarea.Foreground = Brushes.Gray;
+        }
+
+        private void ChangeSmall_Click(object sender, RoutedEventArgs e)
+        {
+            Textarea.FontSize = 15;
+        }
+
+        private void ChangeNormal_Click(object sender, RoutedEventArgs e)
+        {
+            Textarea.FontSize = 20;
+        }
+
+        private void ChangeBig_Click(object sender, RoutedEventArgs e)
+        {
+            Textarea.FontSize = 25;
+        }
+
+        private void Textarea_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            nowText = Textarea.Text;
         }
     }
 }
