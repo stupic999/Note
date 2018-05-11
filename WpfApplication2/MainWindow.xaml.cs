@@ -42,10 +42,11 @@ namespace WpfApplication2
             {
                 System.IO.File.WriteAllText(dlg.FileName, Textarea.Text);
                 fileName = dlg.FileName;
-                savedText = nowText;
-                MessageBox.Show(savedText);
+                savedText = nowText;;
+                Title.Text = dlg.SafeFileName + ".txt";
             }
         }
+
         // 打开文件
         void Open()
         {
@@ -56,6 +57,7 @@ namespace WpfApplication2
                 Textarea.Text = System.IO.File.ReadAllText(dlg.FileName);
                 fileName = dlg.FileName;
                 savedText = Textarea.Text;
+                Title.Text = dlg.SafeFileName + ".txt";
             }
         }
 

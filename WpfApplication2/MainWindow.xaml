@@ -9,14 +9,21 @@
     <Grid>
         
         <!--定义格子-->
-            <Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="300"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
+        <!--标题-->
+        <TextBlock Grid.Column="1" Margin="10 3 0 0" FontSize="15" x:Name="Title">NewFile.txt</TextBlock>
         <!--内容-->
         <Rectangle Fill="Black"></Rectangle>
-        <StackPanel>
+        <Rectangle Fill="Black" Grid.Row="1"></Rectangle>
+        <StackPanel Grid.Row="1">
             <Button Margin="10  20 10 10" x:Name="NewBtn" Click="NewBtn_Click" Background="Black" Foreground="White" BorderBrush="Black">New</Button>
             <Button Margin="10" x:Name="OpenBtn" Click="OpenBtn_Click" Background="Black" Foreground="White"  BorderBrush="Black">Open</Button>
             <Button Margin="10" Click="SaveBtn_Click" x:Name="SaveBtn" Background="Black" Foreground="White"  BorderBrush="Black">Save</Button>
@@ -24,23 +31,23 @@
         </StackPanel>
         
         <!--ChangeColorBtn-->
-            <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
             <Button x:Name="ChangeGray" Click="ChangeGray_Click">
                 <Button.Template>
                     <ControlTemplate>
-                        <Ellipse Width="25" Height="25" Fill="Gray" Stroke="DarkGray" StrokeThickness="3" Margin="16 100 0 0"></Ellipse>
+                        <Ellipse Width="25" Height="25" Fill="Gray" Stroke="DarkGray" StrokeThickness="3" Margin="16 120 0 0"></Ellipse>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
             <Button x:Name="ChangeWhite" Click="ChangeWhite_Click">
                 <Button.Template>
                     <ControlTemplate>
-                        <Ellipse Width="25" Height="25" Fill="White" Stroke="DarkGray" StrokeThickness="3" Margin="10 100 0 0"></Ellipse>
+                        <Ellipse Width="25" Height="25" Fill="White" Stroke="DarkGray" StrokeThickness="3" Margin="10 120 0 0"></Ellipse>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
         </StackPanel>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" Grid.Row="1"> 
                 <Button x:Name="ChangeSmall" Click="ChangeSmall_Click">
                     <Button.Template>
                         <ControlTemplate>
@@ -63,8 +70,8 @@
                 </Button.Template>
             </Button>
         </StackPanel>
-        <ScrollViewer Grid.Column="1"  VerticalScrollBarVisibility="Auto">
-            <TextBox Grid.Column="1"  TextWrapping="Wrap" AcceptsReturn="True" x:Name="Textarea" Foreground="Gray" TextChanged="Textarea_TextChanged" FontSize="20"></TextBox>
+        <ScrollViewer Grid.Row="1" Grid.Column="1"  VerticalScrollBarVisibility="Auto">
+            <TextBox Grid.Column="1" Grid.Row="1"  TextWrapping="Wrap" AcceptsReturn="True" x:Name="Textarea" Foreground="Gray" TextChanged="Textarea_TextChanged" FontSize="20"></TextBox>
         </ScrollViewer>
     </Grid>
 </Window>
