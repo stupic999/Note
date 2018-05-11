@@ -80,6 +80,7 @@ namespace WpfApplication2
                 if (MessageBox.Show("Do you want to Save?", "Save or Not", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     Save();
+                    Open();
                 }
                 else
                 {
@@ -98,6 +99,7 @@ namespace WpfApplication2
                 if (MessageBox.Show("Do you want to Save?", "Save or Not", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     Save();
+                    Textarea.Text = "";
                 }
                 else
                 {
@@ -156,6 +158,43 @@ namespace WpfApplication2
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 this.DragMove();
+            }
+        }
+
+        private void CloseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (savedText != nowText)
+            {
+                if (MessageBox.Show("Do you want to Save?", "Save or Not", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    Save();
+                    this.Close();
+                }
+                else
+                {
+                    this.Close();
+                }
+            }
+            else
+            {
+                this.Close();
+            }
+        }
+
+        private void MinBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void MaxBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.WindowState == WindowState.Maximized)
+            {
+                this.WindowState = WindowState.Normal; //设置窗口还原
+            }
+            else
+            {
+                this.WindowState = WindowState.Maximized; //设置窗口最大化
             }
         }
     }
